@@ -1,0 +1,224 @@
+@mixin control-music-buttons {
+    width: 50px;
+    height: 50px;
+    padding: 10px 15px;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover {
+        background-color: rgb(59, 59, 59);
+    }
+
+    &:hover svg {
+        fill: white;
+    }
+}
+
+#musicListContainer{
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.571);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    border-radius: 0px 10px 10px 0px;
+    transition: 0.15s;
+
+    #headingListContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        width: 100%;
+        height: fit-content;
+        padding: 30px 0px 10px 0px;
+        position: relative;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 2px;
+            background-color: #130f40;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    ul{
+        width: 100%;
+        height: 75%;
+        margin: 30px 0px 0px 0px;
+        font-size: 23px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-snap-type: mandatory;
+
+        li{
+            width: 60%;
+            margin: 15px 40px;
+            width: 100%;
+            list-style: circle;
+            cursor: pointer;
+        }
+
+    }
+
+    #listArrow{
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        padding: 20px 10px;
+        background-color: inherit;
+        border-radius: inherit;
+        transform: translate(100%,-50%);
+        cursor: pointer;
+        backdrop-filter: inherit;
+
+        & svg{
+            width: 15px;
+            fill: black;
+            transition: 0.15s;
+        }
+    }
+}
+
+
+#musicPlayerContainer {
+    width: 450px;
+    height: 550px;
+    background-color: rgba(255, 255, 255, 0.571);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.326);
+
+    & #imageDiv {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: white;
+        margin: 50px auto 30px auto;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.283);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        & img {
+            width: 165%;
+            height: 100%;
+        }
+
+        &::after {
+            content: "";
+            z-index: 2;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+
+        }
+
+        &::before {
+            content: "";
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.537);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+
+        }
+    }
+
+    & #headingContainer {
+        width: 80%;
+        height: auto;
+        font-size: 23px;
+        letter-spacing: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+    }
+
+    & #musicContainer {
+        width: 70%;
+        margin: auto;
+    }
+
+    & #musicContainer progress {
+        width: 100%;
+    }
+
+    & #controlMusic {
+        width: 80%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+
+        & .musicControl {
+            @include control-music-buttons();
+
+        }
+    }
+
+    & #controlMusic #playPauseButton {
+        @include control-music-buttons();
+
+    }
+
+    & #playPauseButton svg {
+        width: 15px;
+        fill: #130f40;
+    }
+
+    & #restOfControl {
+        display: flex;
+        width: 80%;
+        margin: 10px auto;
+        justify-content: space-around;
+
+
+        & .musicControl {
+            @include control-music-buttons();
+        }
+
+        & .repeatGreen {
+            background-color: #55efc4 !important;
+        }
+    }
+}
+
+
+@keyframes imageRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

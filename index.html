@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="./image/headset.ico">
+        <link rel="stylesheet" href="./css/main.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>music player</title>
+    </head>
+    <body>
+        <div id="musicListContainer">
+            <div id="headingListContainer">
+                <h3>
+                    Music List
+                </h3>
+            </div>
+
+            <ul id="musicUOList">
+            </ul>
+
+            <!--the arrow div-->
+            <span id="listArrow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0
+                                384 512">
+                    <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0
+                        45.3l-192 192c-12.5 12.5-32.8 12.5-45.3
+                        0s-12.5-32.8 0-45.3L274.7 256 105.4
+                        86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5
+                        45.3 0l192 192z"/>
+                </svg>
+            </span>
+        </div>
+        <div id="musicPlayerContainer">
+            <div id="imageDiv">
+                <img src="" alt="" id="image">
+            </div>
+            <div id="headingContainer">
+                <h3 id="audioName"></h3>
+            </div>
+            <div id="musicContainer">
+                <audio id="music">
+                    <source src="" id="musicSrc" />
+                </audio>
+                <progress value="0" max="1" id="progressBar"></progress>
+            </div>
+            <div id="controlMusic">
+                <div id="previous" class="musicControl">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384
+                        512" style="rotate: 180deg">
+                        <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192
+                            192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8
+                            0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8
+                            0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                        </svg>
+                    </div>
+                    <div id="playPauseButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384
+                            512">
+                            <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0
+                                80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1
+                                48.5-.9L361 297c14.3-8.7 23-24.2
+                                23-41s-8.7-32.2-23-41L73 39z"/>
+                            </svg>
+                        </div>
+                        <div id="next" class="musicControl">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0
+                                384 512">
+                                <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0
+                                    45.3l-192 192c-12.5 12.5-32.8 12.5-45.3
+                                    0s-12.5-32.8 0-45.3L274.7 256 105.4
+                                    86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5
+                                    45.3 0l192 192z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="restOfControl">
+                            <div class="musicControl" id="decVol"><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><path
+                                        d="M432 256c0 17.7-14.3 32-32 32L48
+                                        288c-17.7 0-32-14.3-32-32s14.3-32
+                                        32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></div>
+                                <div class="musicControl" id="repeat"><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512"><path
+                                            d="M0 224c0 17.7 14.3 32 32
+                                            32s32-14.3 32-32c0-53 43-96
+                                            96-96H320v32c0 12.9 7.8 24.6 19.8
+                                            29.6s25.7 2.2
+                                            34.9-6.9l64-64c12.5-12.5 12.5-32.8
+                                            0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320
+                                            19.1 320 32V64H160C71.6 64 0 135.6 0
+                                            224zm512 64c0-17.7-14.3-32-32-32s-32
+                                            14.3-32 32c0 53-43 96-96
+                                            96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9
+                                            6.9l-64 64c-12.5 12.5-12.5 32.8 0
+                                            45.3l64 64c9.2 9.2 22.9 11.9 34.9
+                                            6.9s19.8-16.6 19.8-29.6V448H352c88.4
+                                            0 160-71.6 160-160z"/></svg></div>
+                                    <div class="musicControl" id="incVol"><svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 448 512"><path
+                                                d="M256
+                                                80c0-17.7-14.3-32-32-32s-32
+                                                14.3-32 32V224H48c-17.7 0-32
+                                                14.3-32 32s14.3 32 32
+                                                32H192V432c0 17.7 14.3 32 32
+                                                32s32-14.3 32-32V288H400c17.7 0
+                                                32-14.3
+                                                32-32s-14.3-32-32-32H256V80z"/></svg></div>
+                                    </div>
+                                </div>
+                                <script src="./javascript/script.js"></script>
+                                <script src="./javascript/music_list.js"></script>
+                            </body>
+                        </html>
